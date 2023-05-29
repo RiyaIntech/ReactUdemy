@@ -9,8 +9,7 @@ exports.handler = async (event) => {
       description,
       currency: "usd",
       payment_method_types: ["card"],
-      'name' : 'test',
-      'address':{"city":"mumbai","country":"india","line1":"unr","line2":"thane","postal_code":"421005","state":"maharashtra"},
+      'name' : 'test'
     });
 
     return {
