@@ -1,5 +1,4 @@
 import { compose, createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
 import { rootReducer } from './root-reducer';
 import {persistStore,persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -7,8 +6,13 @@ import { loggerMiddleware } from './middleware/logger';
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from './root-saga';
 
+export type RootState = ReturnType<typeof rootReducer>;
 
-
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
 const composeEnhancer =
   (process.env.NODE_ENV !== 'production' &&
     window &&

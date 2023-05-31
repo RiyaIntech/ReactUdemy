@@ -12,6 +12,7 @@ import {
       PaymentFormContainer,
       FormContainer
 } from "./payment-form.style.js"
+import { removeItemFromCart } from '../../store/cart/cart.action';
 
 const PaymentForm = () => {
       const stripe = useStripe();
@@ -48,7 +49,7 @@ const PaymentForm = () => {
         });
     
         setIsProcessingPayment(false);
-    
+
         if (paymentResult.error) {
           alert(paymentResult.error.message);
         } else {
